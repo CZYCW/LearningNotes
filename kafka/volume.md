@@ -43,3 +43,9 @@ spec:
       path: /var/run/docker.sock
       type: Socket
 ```
+
+### Volumne Types
+- Host Path: A hostPath Volume maps a directory from a host to where the Pod is running. Using it to “inject” configuration files into containers would mean that we’d have to make sure that the file is present on every node of the cluster.
+  - Do use hostPath to mount host resources like /var/run/docker.sock and /dev/cgroups. Do not use it to inject configuration files or store the state of an application.
+
+
