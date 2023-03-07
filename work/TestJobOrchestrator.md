@@ -36,7 +36,7 @@ curl -X GET -i "http://59.108.228.3:9308/api/job/info" -H "Content-Type: applica
 ### Send request to job manager
 
 grpcurl -plaintext -d '{"node_group": "
-t2-micro-2-cfvde8t6k51qis3db3n0", "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", "command": "python3 /opt/pytorch-mnist/mnist.py --epochs=1", "dataset_id":"7", "project_id": "1","model_id": "7","user_id": "10","nodegroup_quantity": "2","version": "t1_micro","global_job_id": 3}' 0.0.0.0:9306- jobmanager.JobManager/create
+t2-micro-2-cfvde8t6k51qis3db3n0", "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", "command": "python3 /opt/pytorch-mnist/mnist.py --epochs=1", "dataset_id":"7", "project_id": "1","model_id": "7","user_id": "10","nodegroup_quantity": "2","version": "t1_micro","global_job_id": 3}' 59.108.228.3:9306 jobmanager.JobManager/create
 
 
 ### dockers

@@ -78,3 +78,37 @@ kubectl get cm my-config -o yaml
 ```
 ### pracice 4: injecting configurations from environment files
 we can use `--from-env-file` argument. 
+
+### practice 5: convert configmaps output into environment variables
+1. pod definition
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine-env
+spec:
+  containers:
+  - name: alpine
+    image: alpine
+    command: ["sleep"]
+    args: ["100000"]
+    env:
+    - name: something
+      valueFrom:
+        configMapKeyRef:
+          name: my-config
+          key: something
+    - name: weather
+      valueFrom:
+        configMapKeyRef:
+          name: my-config
+          key: weather
+```
+
+2. create the pod
+```bash
+kubectl create \
+    -f alpine-env.yml
+#Wait for a few seconds before executing the below command
+kubectl exec -it alpine-env -- env # execute env command in the container
+```
