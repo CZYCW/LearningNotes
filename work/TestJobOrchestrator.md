@@ -23,14 +23,19 @@ curl -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJle
 ```
 **CreateJob**
 ```bash
-curl -X POST -i "http://59.108.228.3:9308/api/job/create" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk1NjAyODEsImlhdCI6MTY3MDkyMDI4MSwidWlkIjoxMH0._KAelHYt5WMr1pAR8K3at27bLZVoyGwLXfNBLFYIXvA" -d '{"job_name": "job_name", "job_description": "description", "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", "launch_command":"python3 /opt/pytorch-mnist/mnist.py --epochs=1", "dataset_name": "dataset_name","dataset_id": "7","project_name": "project_name","project_id": "1","instance_type": "t1_micro","number_of_instance": 3, "ssd": 1}'
+curl -X POST -i "http://59.108.228.3:9408/api/job/create" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk1NjAyODEsImlhdCI6MTY3MDkyMDI4MSwidWlkIjoxMH0._KAelHYt5WMr1pAR8K3at27bLZVoyGwLXfNBLFYIXvA" -d '{"jobName": "job_name", "jobDescription": "description", "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", "launchCommand":"python3 /opt/pytorch-mnist/mnist.py --epochs=1", "datasetName": "dataset_name","datasetId": "7","projectName": "project_name","projectId": "1","instanceType": "t1_micro","numberOfInstance": , "ssd": 1}'
 ```
 
 {"job_id":"9","job_status":"ResourceCreationProcessComplete"}
 
 **GetJobInfo**
 ```bash
-curl -X GET -i "http://59.108.228.3:9308/api/job/info" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk1NjAyODEsImlhdCI6MTY3MDkyMDI4MSwidWlkIjoxMH0._KAelHYt5WMr1pAR8K3at27bLZVoyGwLXfNBLFYIXvA" -d '{"job_id": "30"}'
+curl -X POST -i "http://59.108.228.3:9408/api/job/info" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk1NjAyODEsImlhdCI6MTY3MDkyMDI4MSwidWlkIjoxMH0._KAelHYt5WMr1pAR8K3at27bLZVoyGwLXfNBLFYIXvA" -d '{"jobId": "10"}'
+```
+
+**GetJobList**
+```bash
+curl -X GET -i "http://59.108.228.3:9408/api/job/list" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk1NjAyODEsImlhdCI6MTY3MDkyMDI4MSwidWlkIjoxMH0._KAelHYt5WMr1pAR8K3at27bLZVoyGwLXfNBLFYIXvA"
 ```
 
 ### Send request to job manager
