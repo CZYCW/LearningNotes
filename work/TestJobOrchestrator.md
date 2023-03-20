@@ -3,7 +3,7 @@
 ### Prepare MySQL
 Insert a job record:
 ```sql
-INSERT INTO job(job_id, job_name, job_description, job_status, dataset_name, dataset_id, user_id, project_id, project_name, launch_command, node_group_id, node_group_name, instance_type, number_of_instance, model_id, pod_names, image, ssd) VALUES (30, "job_name", "job_description", "ResourceCreationRequestSucceed", "dataset_name", 7, 10, 1, "project_name", "python3 /opt/pytorch-mnist/mnist.py --epochs=1", 0, "ng-test","t1_micro", 1, "b5515783-3d32-4df7-adb9-5c4a42e931f2", "pod1 pod2", "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", 1); 
+INSERT INTO job(job_id, job_name, job_description, job_status, dataset_name, dataset_id, user_id, project_id, project_name, launch_command, node_group_id, node_group_name, instance_type, instance_info, number_of_instance, model_id, pod_names, image, ssd) VALUES (30, "job_name", "job_description", "ResourceCreationRequestSucceed", "dataset_name", 7, 10, 1, "project_name", "python3 /opt/pytorch-mnist/mnist.py --epochs=1", 0, "ng-test","t1_micro", "{\"Description\":\"t2.micro\",\"MemoryInGB\":1,\"NumberOfGpu\":1,\"NumberOfCpu\":1,\"StorageType\":\"\",\"StorageInGB\":0,\"NumberOfNetworkInterface\":2,\"OnDemandLinuxPrice\":0.0116}",1, "b5515783-3d32-4df7-adb9-5c4a42e931f2", "pod1 pod2", "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", 1); 
 ```
 
 ### Add a column to mysql
@@ -35,7 +35,12 @@ curl -X POST -i "http://59.108.228.3:9408/api/job/info" -H "Content-Type: applic
 
 **GetJobList**
 ```bash
-curl -X GET -i "http://59.108.228.3:9408/api/job/list" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk1NjAyODEsImlhdCI6MTY3MDkyMDI4MSwidWlkIjoxMH0._KAelHYt5WMr1pAR8K3at27bLZVoyGwLXfNBLFYIXvA"
+curl -X GET -i "http://59.108.228.3:9308/api/job/list" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk1NjAyODEsImlhdCI6MTY3MDkyMDI4MSwidWlkIjoxMH0._KAelHYt5WMr1pAR8K3at27bLZVoyGwLXfNBLFYIXvA"
+```
+
+**DeleteJob**
+```bash
+curl -X POST -i "http://59.108.228.3:9308/api/job/archive" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk1NjAyODEsImlhdCI6MTY3MDkyMDI4MSwidWlkIjoxMH0._KAelHYt5WMr1pAR8K3at27bLZVoyGwLXfNBLFYIXvA" -d '{"jobId": "3"}'
 ```
 
 ### Send request to job manager
@@ -53,3 +58,31 @@ t2-micro-2-cfvde8t6k51qis3db3n0", "image": "docker.io/kubeflowkatib/pytorch-mnis
 - kafka-console-producer --bootstrap-server localhost:9092 --topic resource-creation --property value.serializer=custom.class.serialization.JsonSerializer`
 
 - {"job_id":"30","job_status":"ResourceCreationProcessComplete"}
+
+
+### resource manager
+```
+grpcurl -plaintext -d '{"instance_type": 3, "size": 2, "job_id": "10"}' 59.108.228.3:9404 resourcemanager.ResourceManager/create
+```
+
+
+## JobOrchestrator
+
+### Test with a t2_medium
+```bash
+curl -X POST -i "http://59.108.228.3:9308/api/job/create" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk1NjAyODEsImlhdCI6MTY3MDkyMDI4MSwidWlkIjoxMH0._KAelHYt5WMr1pAR8K3at27bLZVoyGwLXfNBLFYIXvA" -d '{"jobName": "job_name", "jobDescription": "description", "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", "launchCommand":"python3 /opt/pytorch-mnist/mnist.py --epochs=1", "datasetName": "dataset_name","datasetId": "1","projectName": "project_name","projectId": "1","instanceType": "t2_medium","numberOfInstance": 1, "ssd": 1}'
+```
+
+### Test Colossal AI image
+```bash
+curl -X POST -i "http://59.108.228.3:9408/api/job/create" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk1NjAyODEsImlhdCI6MTY3MDkyMDI4MSwidWlkIjoxMH0._KAelHYt5WMr1pAR8K3at27bLZVoyGwLXfNBLFYIXvA" -d '{"jobName": "job_name", "jobDescription": "description", "image": "hpcaitech/colossalai:0.2.5", "launchCommand":"colossalai run --nproc_per_node 1 ../mnt/project/train.py --config ../mnt/project/config.py --optimizer lars --synthetic", "datasetName": "dataset_name","datasetId": "1","projectName": "project_name","projectId": "1","instanceType": "g5_xlarge","numberOfInstance": 1, "ssd": 1}'
+```
+
+```bash
+curl -X POST -i "http://59.108.228.3:9408/api/job/create" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk1NjAyODEsImlhdCI6MTY3MDkyMDI4MSwidWlkIjoxMH0._KAelHYt5WMr1pAR8K3at27bLZVoyGwLXfNBLFYIXvA" -d '{"jobName": "job_name", "jobDescription": "description", "image": "hpcaitech/colossalai:0.2.5", "launchCommand":"colossalai run --nproc_per_node 1 ../mnt/project/train.py --config ../mnt/project/config.py --optimizer lars --path ../mnt/dataset/", "datasetName": "dataset_name","datasetId": "1","projectName": "project_name","projectId": "1","instanceType": "g5_xlarge","numberOfInstance": 1, "ssd": 1}'
+```
+
+
+### Remove a container
+- joborch  `docker compose -p test --env-file ./deploy/docker-compose/.test.env rm -sv joborchestrator-api`
+- rm `docker compose -p dev --env-file ./deploy/docker-compose/.dev.env rm -sv resourcemanager-rpc`
