@@ -35,12 +35,17 @@ curl -X POST -i "http://59.108.228.3:9408/api/job/info" -H "Content-Type: applic
 
 **GetJobList**
 ```bash
-curl -X GET -i "http://59.108.228.3:9308/api/job/list" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk1NjAyODEsImlhdCI6MTY3MDkyMDI4MSwidWlkIjoxMH0._KAelHYt5WMr1pAR8K3at27bLZVoyGwLXfNBLFYIXvA"
+curl -X GET -i "http://59.108.228.3:9308/api/job/list" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk3MzMwODUsImlhdCI6MTY3OTY0NjY4NSwidWlkIjoxfQ.reDSDopTbdKg5IlOK-3aD4gf0atScYAo5Be7YmdKeeE"
 ```
 
 **DeleteJob**
 ```bash
 curl -X POST -i "http://59.108.228.3:9308/api/job/archive" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk1NjAyODEsImlhdCI6MTY3MDkyMDI4MSwidWlkIjoxMH0._KAelHYt5WMr1pAR8K3at27bLZVoyGwLXfNBLFYIXvA" -d '{"jobId": "3"}'
+```
+
+**StopJob**
+```bash
+curl -X POST -i "http://59.108.228.3:9308/api/job/stop" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk3MzMwODUsImlhdCI6MTY3OTY0NjY4NSwidWlkIjoxfQ.reDSDopTbdKg5IlOK-3aD4gf0atScYAo5Be7YmdKeeE" -d '{"jobId": "1"}'
 ```
 
 ### Send request to job manager
@@ -70,7 +75,7 @@ grpcurl -plaintext -d '{"instance_type": 3, "size": 2, "job_id": "10"}' 59.108.2
 
 ### Test with a t2_medium
 ```bash
-curl -X POST -i "http://59.108.228.3:9308/api/job/create" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk1NjAyODEsImlhdCI6MTY3MDkyMDI4MSwidWlkIjoxMH0._KAelHYt5WMr1pAR8K3at27bLZVoyGwLXfNBLFYIXvA" -d '{"jobName": "job_name", "jobDescription": "description", "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", "launchCommand":"python3 /opt/pytorch-mnist/mnist.py --epochs=1", "datasetName": "dataset_name","datasetId": "1","projectName": "project_name","projectId": "1","instanceType": "t2_medium","numberOfInstance": 1, "ssd": 1}'
+curl -X POST -i "http://59.108.228.3:9308/api/job/create" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk3MzMwODUsImlhdCI6MTY3OTY0NjY4NSwidWlkIjoxfQ.reDSDopTbdKg5IlOK-3aD4gf0atScYAo5Be7YmdKeeE" -d '{"jobName": "job_name", "jobDescription": "description", "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", "launchCommand":"python3 /opt/pytorch-mnist/mnist.py --epochs=1", "datasetName": "dataset_name","datasetId": "1","projectName": "project_name","projectId": "1","instanceType": "t2_medium","numberOfInstance": 1, "ssd": 1}'
 ```
 
 ### Test Colossal AI image

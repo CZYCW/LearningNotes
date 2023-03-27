@@ -57,6 +57,41 @@ roleRef:
 
 1. create a role binding `kubectl create -f crb-view.yml --record --save-config`
 
-### Pracice combing role binding with namespace
-create a new dev namespace for new developer to play. 
+### Practice creating role binding for gruops
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
 
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: dev
+  namespace: dev
+subjects:
+- kind: Group
+  name: devs
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: admin
+  apiGroup: rbac.authorization.k8s.io
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: view
+subjects:
+- kind: Group
+  name: devs
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: view
+  apiGroup: rbac.authorization.k8s.io
+```
