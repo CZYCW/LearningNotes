@@ -73,6 +73,12 @@ grpcurl -plaintext -d '{"instance_type": 3, "size": 2, "job_id": "10"}' 59.108.2
 
 ## JobOrchestrator
 
+
+### test against cluster
+```bash
+curl -X POST -i "http://0.0.0.0:8087/api/job/create" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODA1ODk5ODYsImlhdCI6MTY4MDUwMzU4NiwidWlkIjoxfQ.Aow6YUBEJ7xQKWK8YvH9eM1xZvOIyTiGHUCFQCtjcPE" -d '{"jobName": "job_name", "jobDescription": "description", "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", "launchCommand":"python3 /opt/pytorch-mnist/mnist.py --epochs=1", "datasetName": "dataset_name","datasetId": "1","projectName": "project_name","projectId": "1","instanceType": "t2_medium","numberOfInstance": 1, "ssd": 1}'
+```
+
 ### Test with a t2_medium
 ```bash
 curl -X POST -i "http://59.108.228.3:9308/api/job/create" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk3MzMwODUsImlhdCI6MTY3OTY0NjY4NSwidWlkIjoxfQ.reDSDopTbdKg5IlOK-3aD4gf0atScYAo5Be7YmdKeeE" -d '{"jobName": "job_name", "jobDescription": "description", "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", "launchCommand":"python3 /opt/pytorch-mnist/mnist.py --epochs=1", "datasetName": "dataset_name","datasetId": "1","projectName": "project_name","projectId": "1","instanceType": "t2_medium","numberOfInstance": 1, "ssd": 1}'
@@ -91,3 +97,19 @@ curl -X POST -i "http://59.108.228.3:9408/api/job/create" -H "Content-Type: appl
 ### Remove a container
 - joborch  `docker compose -p test --env-file ./deploy/docker-compose/.test.env rm -sv joborchestrator-api`
 - rm `docker compose -p dev --env-file ./deploy/docker-compose/.dev.env rm -sv resourcemanager-rpc`
+
+grpcurl -plaintext -d '{ 
+    "node_group": "test-node-group-3",
+    "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727",
+    "command": "python3 /opt/pytorch-mnist/mnist.py --epochs=1",
+    "dataset_id":"7",
+    "project_id": "1",
+    "model_id": "7",
+    "user_id": "10",
+    "nodegroup_quantity": "2",
+    "version": "v1",
+    "global_job_id": "8",
+    "instance_info": {
+        "NumberOfGpu": 0
+    }
+}' localhost:8080 jobmanager.JobManager/create
