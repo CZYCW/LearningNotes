@@ -73,6 +73,12 @@ grpcurl -plaintext -d '{"instance_type": 3, "size": 2, "job_id": "10"}' 59.108.2
 
 ## JobOrchestrator
 
+db.createUser({
+  user: "root",
+  pwd: "1cRfzdfi22",
+  roles: [ { role: "root", db: "admin" } ]
+})
+
 
 ### test against cluster
 ```bash

@@ -11,3 +11,11 @@ There are other patterns that are useful for everyday kubernetes workloads
 Init Container Pattern
 Adapter Container Pattern
 Ambassador Container Pattern
+
+## Examples
+
+### Adding HTTPS to Legacy Applications
+Add an SSL proxy to a legacy application that does not support HTTPS.
+
+### Dynamic Configuration
+Add a sidecar container that watches a configmap and updates the main container's configuration.
