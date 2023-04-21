@@ -7,6 +7,12 @@ import "fmt"
 // 	fmt.Println(s)
 // }
 
+type HyperParameter struct{
+	Field        string `json:"field"`
+	Type         string `json:"type"`
+	DefaultValue string `json:"defaultValue"`
+}
+
 func temp(delete_funcs *[]func()) {
 	var v = 1
 	var b = 2
