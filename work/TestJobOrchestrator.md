@@ -119,3 +119,54 @@ grpcurl -plaintext -d '{
         "NumberOfGpu": 0
     }
 }' localhost:8080 jobmanager.JobManager/create
+
+
+
+curl -X POST -i "http://0.0.0.0:8087/api/job/create" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODIxNDU0MzYsImlhdCI6MTY4MjA1OTAzNiwidWlkIjoxfQ.hrfpvD4tDYCMofBEMvbuVqi95mpwp-1RaHvlTUgaRcA" -d '{"jobName": "job_name", "jobDescription": "description", "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", "launchCommand":"python3 /opt/pytorch-mnist/mnist.py --epochs=1", "datasetName": "dataset_name","datasetId": "1","projectName": "project_name","projectId": "1","instanceType": "t2_medium","numberOfInstance": 1, "ssd": 1}'
+
+
+grpcurl -plaintext -d '{                                          ✘ INT  base 15:01:07
+    "node_group": "test-node-group-4",
+    "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727",
+    "command": "python3 /opt/pytorch-mnist/mnist.py --epochs=1",
+    "dataset_id":"7",
+    "project_id": "1",
+    "model_id": "7",
+    "user_id": "10",
+    "nodegroup_quantity": "2",
+    "version": "v1",
+    "global_job_id": "9",
+    "instance_info": {
+        "NumberOfGpu": 0
+    }
+}' localhost:8089 jobmanager.JobManager/create
+
+
+### E2E Test Colossal with model
+curl -X POST -i "http://59.108.228.3:9308/api/job/create" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk1NjAyODEsImlhdCI6MTY3MDkyMDI4MSwidWlkIjoxMH0._KAelHYt5WMr1pAR8K3at27bLZVoyGwLXfNBLFYIXvA" -d '{"jobName": "job_name", "jobDescription": "description", "image": "hpcaitech/colossalai:0.2.5", "launchCommand":"colossalai run --nproc_per_node 1 ../mnt/project/train.py --config ../mnt/project/config.py --optimizer lars --path ../mnt/dataset/", "datasetName": "dataset_name","datasetId": "1","projectName": "project_name","projectId": "1","instanceType": "g5_xlarge","numberOfInstance": 1, "ssd": 1}'
+
+```bash
+grpcurl -plaintext -d '{ 
+    "node_group": "test-colossal",
+    "image": "hpcaitech/colossalai:0.2.5",
+    "command": "cd / && colossalai run --nproc_per_node 1 /mnt/project/large_batch_optimizer/train.py --config /mnt/project/large_batch_optimizer/config.py --optimizer lars --dataset /mnt/dataset/ --output /output/model",
+    "dataset_s3_path": "luchen-storage:10/dataset/1",
+    "project_s3_path": "luchen-storage:10/project/2",
+    "nodegroup_quantity": "1",
+    "training_job_name": "job1",
+    "global_job_id": "1",
+    "global_job_id": "9",
+    "input_model_s3_path": "luchen-storage:10/model/8",
+    "instance_info": {
+        "NumberOfGpu": 1
+    }
+}' localhost:8089 jobmanager.JobManager/create;
+```
+
+```
+grpcurl -plaintext -d '{
+    "model_name": "test-colossal",
+    "model_s3_location": "bucket:1",
+    "user_id": 1
+}' 0.0.0.0:8080 modelmanager.ModelManager.register
+```
