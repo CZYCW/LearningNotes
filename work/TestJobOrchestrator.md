@@ -48,6 +48,10 @@ curl -X POST -i "http://59.108.228.3:9308/api/job/archive" -H "Content-Type: app
 curl -X POST -i "http://59.108.228.3:9308/api/job/stop" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk3MzMwODUsImlhdCI6MTY3OTY0NjY4NSwidWlkIjoxfQ.reDSDopTbdKg5IlOK-3aD4gf0atScYAo5Be7YmdKeeE" -d '{"jobId": "1"}'
 ```
 
+**DownloadModel**
+```bash
+curl -X POST -i "http://10.0.10.53:8087/api/job/modeldownload" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODMzNjIxOTAsImlhdCI6MTY4MzI3NTc5MCwidWlkIjoxfQ.8PXr05acmMSeu7__vyigZ5eovzU9ajF7dOoMlcEsX-U" -d '{"jobId": "20"}'
+```
 ### Send request to job manager
 
 grpcurl -plaintext -d '{"node_group": "
