@@ -30,7 +30,7 @@ curl -X POST -i "http://59.108.228.3:9408/api/job/create" -H "Content-Type: appl
 
 **GetJobInfo**
 ```bash
-curl -X POST -i "http://59.108.228.3:9408/api/job/info" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk1NjAyODEsImlhdCI6MTY3MDkyMDI4MSwidWlkIjoxMH0._KAelHYt5WMr1pAR8K3at27bLZVoyGwLXfNBLFYIXvA" -d '{"jobId": "10"}'
+curl -X POST -i "http://0.0.0.0:8087/api/job/info" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODM3MDI3MTEsImlhdCI6MTY4MzYxNjMxMSwidWlkIjoxfQ.gZZeucr-KRzavwVv_pYpLboCIOadrcHmn7EhaO4jbu4" -d '{"jobId": "32"}'
 ```
 
 **GetJobList**
@@ -91,7 +91,7 @@ curl -X POST -i "http://0.0.0.0:8087/api/job/create" -H "Content-Type: applicati
 
 ### Test with a t2_medium
 ```bash
-curl -X POST -i "http://59.108.228.3:9308/api/job/create" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk3MzMwODUsImlhdCI6MTY3OTY0NjY4NSwidWlkIjoxfQ.reDSDopTbdKg5IlOK-3aD4gf0atScYAo5Be7YmdKeeE" -d '{"jobName": "job_name", "jobDescription": "description", "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", "launchCommand":"python3 /opt/pytorch-mnist/mnist.py --epochs=1", "datasetName": "dataset_name","datasetId": "1","projectName": "project_name","projectId": "1","instanceType": "t2_medium","numberOfInstance": 1, "ssd": 1}'
+curl -X POST -i "http://0.0.0.0:8087/api/job/create" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODM3MDI3MTEsImlhdCI6MTY4MzYxNjMxMSwidWlkIjoxfQ.gZZeucr-KRzavwVv_pYpLboCIOadrcHmn7EhaO4jbu4" -d '{"jobName": "job_name", "jobDescription": "description", "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", "launchCommand":"python3 /opt/pytorch-mnist/mnist.py --epochs=1", "datasetName": "dataset_name","datasetId": "1","projectId": "1","instanceType": "t2_medium","numberOfInstance": 1, "ssd": 1}'
 ```
 
 ### Test Colossal AI image
@@ -174,3 +174,10 @@ grpcurl -plaintext -d '{
     "user_id": 1
 }' 0.0.0.0:8080 modelmanager.ModelManager.register
 ```
+
+grpcurl -plaintext -d '{                                                                                                                   base 
+    "model_name": "test-colossal"
+    "model_s3_location": "bucket:1"
+    "user_id": 1
+    
+}' localhost:8080 modelmanager.ModelManager/create;
