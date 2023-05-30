@@ -54,8 +54,7 @@ curl -X POST -i "http://10.0.10.53:8087/api/job/modeldownload" -H "Content-Type:
 ```
 ### Send request to job manager
 
-grpcurl -plaintext -d '{"node_group": "
-t2-micro-2-cfvde8t6k51qis3db3n0", "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", "command": "python3 /opt/pytorch-mnist/mnist.py --epochs=1", "dataset_id":"7", "project_id": "1","model_id": "7","user_id": "10","nodegroup_quantity": "2","version": "t1_micro","global_job_id": 3}' 59.108.228.3:9306 jobmanager.JobManager/create
+grpcurl -plaintext -d '{"node_group": "test-node", "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", "command": "python3 /opt/pytorch-mnist/mnist.py --epochs=", "dataset_s3_path":"luchen-storage:1/dataset/7", "project_s3_path": "luchen-storage:1/project/1","input_model_s3_path": "luchen-storage:1/model","output_model_s3_path": "luchen-storage:1/job/5","nodegroup_quantity": "1","global_job_id": "6", "training_job_name": "jobname", "instance_info": {"NumberOfGpu": 0}}' 0.0.0.0:8080 jobmanager.JobManager/create
 
 
 ### dockers
@@ -91,7 +90,7 @@ curl -X POST -i "http://0.0.0.0:8087/api/job/create" -H "Content-Type: applicati
 
 ### Test with a t2_medium
 ```bash
-curl -X POST -i "http://0.0.0.0:8087/api/job/create" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODM3MDI3MTEsImlhdCI6MTY4MzYxNjMxMSwidWlkIjoxfQ.gZZeucr-KRzavwVv_pYpLboCIOadrcHmn7EhaO4jbu4" -d '{"jobName": "job_name", "jobDescription": "description", "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", "launchCommand":"python3 /opt/pytorch-mnist/mnist.py --epochs=1", "datasetName": "dataset_name","datasetId": "1","projectId": "1","instanceType": "t2_medium","numberOfInstance": 1, "ssd": 1}'
+curl -X POST -i "http://0.0.0.0:8087/api/job/create" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODU0MzgwMDYsImlhdCI6MTY4NTM1MTYwNiwidWlkIjoxfQ.SZvJ_7ActwG7yqyk9ch8X6AnEx2jahk7_dw6WzXAo3M" -d '{"jobName": "job_name", "jobDescription": "description", "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", "launchCommand":"python3 /opt/pytorch-mnist/mnist.py --epochs=1", "datasetName": "dataset_name","datasetId": "1","projectId": "1","instanceType": "t2_medium","numberOfInstance": 1, "ssd": 1, "hyperparameters": "{\"HyperParameters\":[{\"name\":\"pretrain\",\"types\":\"string\",\"defaultValue\":\"bigscience/bloom-560m\"},{\"name\":\"model\",\"types\":\"string\",\"defaultValue\":\"bloom\"},{\"name\":\"strategy\",\"types\":\"string\",\"defaultValue\":\"colossalai_zero2_cpu\"},{\"name\":\"max_datasets_size\",\"types\":\"int\",\"defaultValue\":\"512\"},{\"name\":\"max_epochs\",\"types\":\"int\",\"defaultValue\":\"0\"}]}"}'
 ```
 
 ### Test Colossal AI image
