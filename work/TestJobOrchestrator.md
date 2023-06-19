@@ -95,7 +95,7 @@ curl -X POST -i "http://0.0.0.0:8087/api/job/create" -H "Content-Type: applicati
 
 ### Test Colossal AI image
 ```bash
-curl -X POST -i "http://59.108.228.3:9408/api/job/create" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzk1NjAyODEsImlhdCI6MTY3MDkyMDI4MSwidWlkIjoxMH0._KAelHYt5WMr1pAR8K3at27bLZVoyGwLXfNBLFYIXvA" -d '{"jobName": "job_name", "jobDescription": "description", "image": "hpcaitech/colossalai:0.2.5", "launchCommand":"colossalai run --nproc_per_node 1 ../mnt/project/train.py --config ../mnt/project/config.py --optimizer lars --synthetic", "datasetName": "dataset_name","datasetId": "1","projectName": "project_name","projectId": "1","instanceType": "g5_xlarge","numberOfInstance": 1, "ssd": 1}'
+curl -X POST -i "http://10.0.11.136:8087/api/job/create" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODYwNDIyMzEsImlhdCI6MTY4NTk1NTgzMSwidWlkIjoxfQ.1uiLWY01bZ7Xd4sHhlFgcdgH20g06l8tbiCckaTJNqs" -d '{"jobName": "job_name", "jobDescription": "description", "image": "hpcaitech/colossalai:0.2.5", "launchCommand":"colossalai run --nproc_per_node 1 ../mnt/project/train.py --config ../mnt/project/config.py --optimizer lars --synthetic", "datasetName": "dataset_name","datasetId": "1","projectName": "project_name","templateId": "000000000000000000000000","instanceType": "g5_xlarge","numberOfInstance": 1, "ssd": 1}'
 ```
 
 ```bash
@@ -180,3 +180,5 @@ grpcurl -plaintext -d '{                                                        
     "user_id": 1
     
 }' localhost:8080 modelmanager.ModelManager/create;
+
+curl -X POST -i "http://0.0.0.0:8888/api/job/create" -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODY5MjA3ODYsImlhdCI6MTY4NjgzNDM4NiwidWlkIjoxfQ.2jh37FSMIJnefO_N-7zcXlwOjQz452MxlWXWk_ZkrYU" -d '{"jobName": "job_name", "jobDescription": "description", "image": "docker.io/kubeflowkatib/pytorch-mnist:v1beta1-45c5727", "launchCommand":"python3 /opt/pytorch-mnist/mnist.py --epochs=1", "datasetName": "dataset_name","datasetId": "1","projectName": "project_name","projectId": "1","resourceRequest": {"numberOfGpu": 1}}'
