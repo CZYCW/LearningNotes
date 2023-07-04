@@ -12,3 +12,8 @@
 - Collective Communication (c10d)
   - support sending tensors across processes within a group.
   - offers both collective communication APIs (all_reduce and all_together) and P2P commnunication APIs(send and isend)
+
+### backends
+- use NCCL backend for GPU training
+- use Gloo for CPU training
+
