@@ -1,10 +1,10 @@
 import requests
 
 # Generate the pre-signed URL using the code from the previous example
-url = 'https://luchen-storage.s3.us-west-2.amazonaws.com/1/dataset/28/test/b.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZUOMWBQ5KEYTB27K%2F20230511%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230511T055852Z&X-Amz-Expires=7200&X-Amz-SignedHeaders=host&X-Amz-Signature=f89e1c47d810776658105bfb4ed497668e5d495e9fb277ddfcfa2db96335fded'
+url = 'https://luchen-storage.tos-cn-beijing.volces.com/1/job/234/output/checkpoint/train.py?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTOTZiZjY0MmQ0NzNkNGJiOGFhOWEwYWQ0MmJhNzZjNGY%2F20230714%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20230714T064750Z&X-Tos-Expires=3600&X-Tos-Signature=25e059e7dcd21ecc280d2e367e8a853eadb68dc334cf7e5d75f4d074b4bc1b02&X-Tos-SignedHeaders=host'
 
 # Set the file path for the upload
-file_path = './uploads/b.txt'
+file_path = '/Users/ziyuanc/Desktop/work/train.py'
 
 # Open the file and read the contents
 with open(file_path, 'r') as file:
