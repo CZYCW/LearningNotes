@@ -1,0 +1,1 @@
+torch-model-archiver --model-name inference-service-64b7a0a2ad6077101ecb1ab2 --version 1.0 --model-file ./mnist.py --serialized-file ./mnist_cnn.pt --handler ./mnist_handler.py
