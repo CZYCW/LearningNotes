@@ -1,0 +1,37 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  creationTimestamp: "2023-08-13T06:52:12Z"
+  generation: 1
+  name: sklearn-iris
+  namespace: kserve-test
+  ownerReferences:
+  - apiVersion: serving.kserve.io/v1beta1
+    blockOwnerDeletion: true
+    controller: true
+    kind: InferenceService
+    name: sklearn-iris
+    uid: ee178fc3-6cea-461c-ae90-029c4dbf64ec
+  resourceVersion: "3111880"
+  uid: 198896d4-ce49-4947-9462-93f5c07d5de3
+spec:
+  gateways:
+  - knative-serving/knative-local-gateway
+  hosts:
+  - sklearn-iris.kserve-test.svc.cluster.local
+  http:
+  - headers:
+      request:
+        set:
+          Host: sklearn-iris-predictor.kserve-test.svc.cluster.local
+    match:
+    - authority:
+        regex: ^sklearn-iris\.kserve-test(\.svc(\.cluster\.local)?)?(?::\d{1,5})?$
+      gateways:
+      - knative-serving/knative-local-gateway
+    route:
+    - destination:
+        host: knative-local-gateway.istio-system.svc.cluster.local
+        port:
+          number: 80
+      weight: 100

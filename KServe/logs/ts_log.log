@@ -1,0 +1,10 @@
+2023-08-28T14:06:34,384 [INFO ] nioEventLoopGroup-4-1 ACCESS_LOG - /[0:0:0:0:0:0:0:1]:61588 "GET / HTTP/1.1" 405 8
+2023-08-28T14:06:34,421 [INFO ] nioEventLoopGroup-4-1 TS_METRICS - Requests4XX.Count:1.0|#Level:Host|#hostname:Ziyuans-Laptop.local,timestamp:1693202794
+2023-08-28T14:06:34,691 [INFO ] nioEventLoopGroup-4-1 ACCESS_LOG - /[0:0:0:0:0:0:0:1]:61589 "GET /favicon.ico HTTP/1.1" 404 2
+2023-08-28T14:06:34,692 [INFO ] nioEventLoopGroup-4-1 TS_METRICS - Requests4XX.Count:1.0|#Level:Host|#hostname:Ziyuans-Laptop.local,timestamp:1693202794
+2023-08-28T15:27:02,469 [INFO ] nioEventLoopGroup-3-4 ACCESS_LOG - /127.0.0.1:53225 "POST / HTTP/1.1" 405 3
+2023-08-28T15:27:02,475 [INFO ] nioEventLoopGroup-3-4 TS_METRICS - Requests4XX.Count:1.0|#Level:Host|#hostname:Ziyuans-Laptop.local,timestamp:1693207622
+2023-08-28T15:29:09,475 [INFO ] nioEventLoopGroup-3-1 ACCESS_LOG - /127.0.0.1:53379 "POST / HTTP/1.1" 405 1
+2023-08-28T15:29:09,477 [INFO ] nioEventLoopGroup-3-1 TS_METRICS - Requests4XX.Count:1.0|#Level:Host|#hostname:Ziyuans-Laptop.local,timestamp:1693207749
+2023-08-28T15:29:24,382 [INFO ] nioEventLoopGroup-3-2 ACCESS_LOG - /127.0.0.1:53405 "POST / HTTP/1.1" 405 1
+2023-08-28T15:29:24,383 [INFO ] nioEventLoopGroup-3-2 TS_METRICS - Requests4XX.Count:1.0|#Level:Host|#hostname:Ziyuans-Laptop.local,timestamp:1693207764

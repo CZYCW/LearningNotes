@@ -1,0 +1,11 @@
+apiVersion: "serving.kserve.io/v1beta1"
+kind: "InferenceService"
+metadata:
+  name: "manual-inference-test"
+spec:
+  predictor:
+
+    pytorch:
+      securityContext:
+        runAsUser: 0
+      storageUri: "pvc://task-pv-claim-test"

@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: storage-initializer-2
+spec:
+  securityContext:
+    runAsUser: 0
+  volumes:
+    - name: kserve-pvc-source
+      persistentVolumeClaim:
+        claimName: task-pv-claim-test
+  containers:
+    - name: storage-initializer
+      image: cloud-platform-registry-cn-beijing.cr.volces.com/disposable-experiments/storage-initializer:latest
+      args:
+        - "/mnt/pvc/"
+        - "/mnt/models"
+      volumeMounts:
+        - mountPath: /mnt/pvc
+          name: kserve-pvc-source
+          # readOnly: true

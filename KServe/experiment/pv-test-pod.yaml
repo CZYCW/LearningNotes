@@ -1,0 +1,25 @@
+# add a node selector to this pod 
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: model-store-pod-1
+spec:
+  volumes:
+  - name: kserve-pvc-source
+    persistentVolumeClaim:
+      claimName: task-pv-claim-test
+  containers:
+  - name: model-store
+    image: python:3.9
+    command: 
+        - python
+        - -c
+        - |
+          import os
+          print(os.path.exists("/mnt/pvc"))
+
+    volumeMounts:
+    - mountPath: /mnt/pvc
+      name: kserve-pvc-source
+      readOnly: true
