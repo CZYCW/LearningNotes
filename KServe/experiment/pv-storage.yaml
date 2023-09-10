@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: task-pv-volume-test
+  name: pv-model-64f9ab7e8c1798874da90157
   labels:
     type: local
 spec:
@@ -11,12 +11,12 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/data/1/model/64b7a0a2ad6077101ecb1ab2/serve"
+    path: "/data/1/model/64f9ab7e8c1798874da90157/serve"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: task-pv-claim-test
+  name: pvc-model-64f9ab7e8c1798874da90157
 spec:
   storageClassName: manual
   accessModes:

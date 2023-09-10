@@ -1,0 +1,28 @@
+apiVersion: "serving.kserve.io/v1beta1"
+kind: "InferenceService"
+metadata:
+  name: "manual-inference-2"
+spec:
+  predictor:
+    # nodeSelector:
+    #   purpose: "inference"
+    pytorch:
+      # protocolVersion: v2
+      image: cloud-platform-registry-cn-beijing.cr.volces.com/disposable-experiments/kserve-pytorch:latest
+      imagePullPolicy: Always
+      # args: ["--enable_docs_url=True"]
+      # env:
+      #   - name: PROTOCOL_VERSION
+      #     value: "v2"
+      # resources:
+      #   requests:
+      #     memory: "10Gi"
+      #     cpu: "10"
+      #     nvidia.com/gpu: "1"
+      #   limits:
+      #     memory: "10Gi"
+      #     cpu: "10"
+      #     nvidia.com/gpu: "1"
+      securityContext:
+        runAsUser: 0
+      storageUri: "pvc://pvc-model-64f9ab7e8c1798874da90157"

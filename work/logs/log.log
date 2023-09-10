@@ -1,0 +1,304 @@
+2023-09-01T06:37:30,174 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - ImportError: cannot import name 'DEFAULT_CIPHERS' from 'urllib3.util.ssl_' (/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/urllib3/util/ssl_.py)
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - The above exception was the direct cause of the following exception:
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - Traceback (most recent call last):
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/ts/model_service_worker.py", line 221, in <module>
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     worker.run_server()
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/ts/model_service_worker.py", line 189, in run_server
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/ts/model_service_worker.py", line 154, in handle_connection
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/ts/model_service_worker.py", line 118, in load_model
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     service = model_loader.load(
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/ts/model_loader.py", line 100, in load
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/custom_handler.py", line 9, in <module>
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from transformers import BloomForCausalLM, BloomTokenizerFast
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1039, in _handle_fromlist
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/transformers/utils/import_utils.py", line 1121, in __getattr__
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     value = getattr(module, name)
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/transformers/utils/import_utils.py", line 1120, in __getattr__
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     module = self._get_module(self._class_to_module[name])
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/transformers/utils/import_utils.py", line 1132, in _get_module
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     raise RuntimeError(
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - RuntimeError: Failed to import transformers.models.bloom.modeling_bloom because of the following error (look up to see its traceback):
+2023-09-01T06:37:30,175 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - cannot import name 'DEFAULT_CIPHERS' from 'urllib3.util.ssl_' (/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/urllib3/util/ssl_.py)
+2023-09-01T06:37:30,180 [DEBUG] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
+2023-09-01T06:37:30,180 [DEBUG] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
+2023-09-01T06:37:30,180 [DEBUG] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died.
+java.lang.InterruptedException: null
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679) ~[?:?]
+	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:435) ~[?:?]
+	at org.pytorch.serve.wlm.WorkerThread.run(WorkerThread.java:191) [model-server.jar:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
+	at java.lang.Thread.run(Thread.java:833) [?:?]
+2023-09-01T06:37:30,180 [DEBUG] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died.
+java.lang.InterruptedException: null
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679) ~[?:?]
+	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:435) ~[?:?]
+	at org.pytorch.serve.wlm.WorkerThread.run(WorkerThread.java:191) [model-server.jar:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
+	at java.lang.Thread.run(Thread.java:833) [?:?]
+2023-09-01T06:37:30,180 [WARN ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.BatchAggregator - Load model failed: inference-service-64bcd7acc66e616e18458ca3, error: Worker died.
+2023-09-01T06:37:30,180 [WARN ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.BatchAggregator - Load model failed: inference-service-64bcd7acc66e616e18458ca3, error: Worker died.
+2023-09-01T06:37:30,181 [DEBUG] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerThread - W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 State change WORKER_STARTED -> WORKER_STOPPED
+2023-09-01T06:37:30,181 [DEBUG] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerThread - W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 State change WORKER_STARTED -> WORKER_STOPPED
+2023-09-01T06:37:30,181 [WARN ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stderr
+2023-09-01T06:37:30,181 [WARN ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stderr
+2023-09-01T06:37:30,181 [WARN ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout
+2023-09-01T06:37:30,181 [WARN ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout
+2023-09-01T06:37:30,181 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerThread - Retry worker: 9000 in 21 seconds.
+2023-09-01T06:37:30,181 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerThread - Retry worker: 9000 in 21 seconds.
+2023-09-01T06:37:30,193 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout
+2023-09-01T06:37:30,193 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout
+2023-09-01T06:37:30,193 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stderr org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stderr
+2023-09-01T06:37:30,193 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stderr org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stderr
+^C
+root@manual-inference-test-1-predictor-default-00001-deploymentl74mx:/home/model-server/logs# cat ts_log.log
+2023-09-01T06:09:47,200 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager - Initializing plugins manager...
+2023-09-01T06:09:47,200 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager - Initializing plugins manager...
+2023-09-01T06:09:47,410 [INFO ] main org.pytorch.serve.ModelServer -
+Torchserve version: 0.7.0
+TS Home: /usr/local/lib/python3.8/dist-packages
+Current directory: /home/model-server
+Temp directory: /home/model-server/tmp
+Metrics config path: /usr/local/lib/python3.8/dist-packages/ts/configs/metrics.yaml
+Number of GPUs: 0
+Number of CPUs: 1
+Max heap size: 494 M
+Python executable: /usr/bin/python3.8
+Config file: /mnt/models/config/config.properties
+Inference address: http://0.0.0.0:8085
+Management address: http://0.0.0.0:8085
+Metrics address: http://0.0.0.0:8082
+Model Store: /mnt/pvc/model-store
+Initial Models: all
+Log dir: /home/model-server/logs
+Metrics dir: /home/model-server/logs
+Netty threads: 4
+Netty client threads: 0
+Default workers per model: 1
+Blacklist Regex: N/A
+Maximum Response Size: 655350000
+Maximum Request Size: 6553500
+Limit Maximum Image Pixels: true
+Prefer direct buffer: false
+Allowed Urls: [file://.*|http(s)?://.*]
+Custom python dependency for model allowed: true
+Metrics report format: prometheus
+Enable metrics API: true
+Workflow Store: /mnt/pvc/model-store
+Model config: N/A
+2023-09-01T06:09:47,410 [INFO ] main org.pytorch.serve.ModelServer -
+Torchserve version: 0.7.0
+TS Home: /usr/local/lib/python3.8/dist-packages
+Current directory: /home/model-server
+Temp directory: /home/model-server/tmp
+Metrics config path: /usr/local/lib/python3.8/dist-packages/ts/configs/metrics.yaml
+Number of GPUs: 0
+Number of CPUs: 1
+Max heap size: 494 M
+Python executable: /usr/bin/python3.8
+Config file: /mnt/models/config/config.properties
+Inference address: http://0.0.0.0:8085
+Management address: http://0.0.0.0:8085
+Metrics address: http://0.0.0.0:8082
+Model Store: /mnt/pvc/model-store
+Initial Models: all
+Log dir: /home/model-server/logs
+Metrics dir: /home/model-server/logs
+Netty threads: 4
+Netty client threads: 0
+Default workers per model: 1
+Blacklist Regex: N/A
+Maximum Response Size: 655350000
+Maximum Request Size: 6553500
+Limit Maximum Image Pixels: true
+Prefer direct buffer: false
+Allowed Urls: [file://.*|http(s)?://.*]
+Custom python dependency for model allowed: true
+Metrics report format: prometheus
+Enable metrics API: true
+Workflow Store: /mnt/pvc/model-store
+Model config: N/A
+2023-09-01T06:09:47,417 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager -  Loading snapshot serializer plugin...
+2023-09-01T06:09:47,417 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager -  Loading snapshot serializer plugin...
+2023-09-01T06:09:47,487 [INFO ] main org.pytorch.serve.snapshot.SnapshotManager - Started restoring models from snapshot {"name":"startup.cfg","modelCount":1,"models":{"inference-service-64bcd7acc66e616e18458ca3":{"1.0":{"defaultVersion":true,"marName":"inference-service-64bcd7acc66e616e18458ca3.mar","minWorkers":1,"maxWorkers":5,"batchSize":1,"maxBatchDelay":10,"responseTimeout":120}}}}
+2023-09-01T06:09:47,487 [INFO ] main org.pytorch.serve.snapshot.SnapshotManager - Started restoring models from snapshot {"name":"startup.cfg","modelCount":1,"models":{"inference-service-64bcd7acc66e616e18458ca3":{"1.0":{"defaultVersion":true,"marName":"inference-service-64bcd7acc66e616e18458ca3.mar","minWorkers":1,"maxWorkers":5,"batchSize":1,"maxBatchDelay":10,"responseTimeout":120}}}}
+2023-09-01T06:09:47,494 [INFO ] main org.pytorch.serve.snapshot.SnapshotManager - Validating snapshot startup.cfg
+2023-09-01T06:09:47,494 [INFO ] main org.pytorch.serve.snapshot.SnapshotManager - Validating snapshot startup.cfg
+2023-09-01T06:09:47,496 [INFO ] main org.pytorch.serve.snapshot.SnapshotManager - Snapshot startup.cfg validated successfully
+2023-09-01T06:09:47,496 [INFO ] main org.pytorch.serve.snapshot.SnapshotManager - Snapshot startup.cfg validated successfully
+2023-09-01T06:10:00,695 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Adding new version 1.0 for model inference-service-64bcd7acc66e616e18458ca3
+2023-09-01T06:10:00,695 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Adding new version 1.0 for model inference-service-64bcd7acc66e616e18458ca3
+2023-09-01T06:10:00,699 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Setting default version to 1.0 for model inference-service-64bcd7acc66e616e18458ca3
+2023-09-01T06:10:00,699 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Setting default version to 1.0 for model inference-service-64bcd7acc66e616e18458ca3
+2023-09-01T06:36:44,508 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Setting default version to 1.0 for model inference-service-64bcd7acc66e616e18458ca3
+2023-09-01T06:36:44,508 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Setting default version to 1.0 for model inference-service-64bcd7acc66e616e18458ca3
+2023-09-01T06:36:44,508 [INFO ] main org.pytorch.serve.wlm.ModelManager - Model inference-service-64bcd7acc66e616e18458ca3 loaded.
+2023-09-01T06:36:44,508 [INFO ] main org.pytorch.serve.wlm.ModelManager - Model inference-service-64bcd7acc66e616e18458ca3 loaded.
+2023-09-01T06:36:44,508 [DEBUG] main org.pytorch.serve.wlm.ModelManager - updateModel: inference-service-64bcd7acc66e616e18458ca3, count: 1
+2023-09-01T06:36:44,508 [DEBUG] main org.pytorch.serve.wlm.ModelManager - updateModel: inference-service-64bcd7acc66e616e18458ca3, count: 1
+2023-09-01T06:36:44,514 [DEBUG] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/usr/bin/python3.8, /usr/local/lib/python3.8/dist-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /home/model-server/tmp/.ts.sock.9000, --metrics-config, /usr/local/lib/python3.8/dist-packages/ts/configs/metrics.yaml]
+2023-09-01T06:36:44,514 [DEBUG] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/usr/bin/python3.8, /usr/local/lib/python3.8/dist-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /home/model-server/tmp/.ts.sock.9000, --metrics-config, /usr/local/lib/python3.8/dist-packages/ts/configs/metrics.yaml]
+2023-09-01T06:36:44,516 [INFO ] main org.pytorch.serve.ModelServer - Initialize Inference server with: EpollServerSocketChannel.
+2023-09-01T06:36:44,516 [INFO ] main org.pytorch.serve.ModelServer - Initialize Inference server with: EpollServerSocketChannel.
+2023-09-01T06:36:44,602 [INFO ] main org.pytorch.serve.ModelServer - Inference API bind to: http://0.0.0.0:8085
+2023-09-01T06:36:44,602 [INFO ] main org.pytorch.serve.ModelServer - Inference API bind to: http://0.0.0.0:8085
+2023-09-01T06:36:44,602 [INFO ] main org.pytorch.serve.ModelServer - Initialize Metrics server with: EpollServerSocketChannel.
+2023-09-01T06:36:44,602 [INFO ] main org.pytorch.serve.ModelServer - Initialize Metrics server with: EpollServerSocketChannel.
+2023-09-01T06:36:44,607 [INFO ] main org.pytorch.serve.ModelServer - Metrics API bind to: http://0.0.0.0:8082
+2023-09-01T06:36:44,607 [INFO ] main org.pytorch.serve.ModelServer - Metrics API bind to: http://0.0.0.0:8082
+2023-09-01T06:36:44,994 [WARN ] pool-3-thread-1 org.pytorch.serve.metrics.MetricCollector - worker pid is not available yet.
+2023-09-01T06:36:44,994 [WARN ] pool-3-thread-1 org.pytorch.serve.metrics.MetricCollector - worker pid is not available yet.
+2023-09-01T06:36:45,090 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:manual-inference-test-1-predictor-default-00001-deploymentl74mx,timestamp:1693550205
+2023-09-01T06:36:45,091 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:8.240489959716797|#Level:Host|#hostname:manual-inference-test-1-predictor-default-00001-deploymentl74mx,timestamp:1693550205
+2023-09-01T06:36:45,091 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:29.1602783203125|#Level:Host|#hostname:manual-inference-test-1-predictor-default-00001-deploymentl74mx,timestamp:1693550205
+2023-09-01T06:36:45,091 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:78.0|#Level:Host|#hostname:manual-inference-test-1-predictor-default-00001-deploymentl74mx,timestamp:1693550205
+2023-09-01T06:36:45,091 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:12831.6484375|#Level:Host|#hostname:manual-inference-test-1-predictor-default-00001-deploymentl74mx,timestamp:1693550205
+2023-09-01T06:36:45,091 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:2181.05859375|#Level:Host|#hostname:manual-inference-test-1-predictor-default-00001-deploymentl74mx,timestamp:1693550205
+2023-09-01T06:36:45,091 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:17.2|#Level:Host|#hostname:manual-inference-test-1-predictor-default-00001-deploymentl74mx,timestamp:1693550205
+2023-09-01T06:36:46,568 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - Listening on port: /home/model-server/tmp/.ts.sock.9000
+2023-09-01T06:36:46,571 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - Successfully loaded /usr/local/lib/python3.8/dist-packages/ts/configs/metrics.yaml.
+2023-09-01T06:36:46,572 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - [PID]161
+2023-09-01T06:36:46,572 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - Torch worker started.
+2023-09-01T06:36:46,572 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - Python runtime: 3.8.10
+2023-09-01T06:36:46,572 [DEBUG] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerThread - W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 State change null -> WORKER_STARTED
+2023-09-01T06:36:46,572 [DEBUG] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerThread - W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 State change null -> WORKER_STARTED
+2023-09-01T06:36:46,576 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerThread - Connecting to: /home/model-server/tmp/.ts.sock.9000
+2023-09-01T06:36:46,576 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerThread - Connecting to: /home/model-server/tmp/.ts.sock.9000
+2023-09-01T06:36:46,584 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - Connection accepted: /home/model-server/tmp/.ts.sock.9000.
+2023-09-01T06:36:46,586 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerThread - Flushing req. to backend at: 1693550206586
+2023-09-01T06:36:46,586 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerThread - Flushing req. to backend at: 1693550206586
+2023-09-01T06:36:46,627 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - model_name: inference-service-64bcd7acc66e616e18458ca3, batchSize: 1
+2023-09-01T06:36:47,177 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - Created a temporary directory at /home/model-server/tmp/tmp0u3tki9q
+2023-09-01T06:36:47,177 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - Writing /home/model-server/tmp/tmp0u3tki9q/_remote_module_non_scriptable.py
+2023-09-01T06:36:47,247 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - Backend worker process died.
+2023-09-01T06:36:47,247 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - Traceback (most recent call last):
+2023-09-01T06:36:47,248 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/transformers/utils/import_utils.py", line 1130, in _get_module
+2023-09-01T06:36:47,248 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     return importlib.import_module("." + module_name, self.__name__)
+2023-09-01T06:36:47,248 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+2023-09-01T06:36:47,248 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-09-01T06:36:47,248 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+2023-09-01T06:36:47,248 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+2023-09-01T06:36:47,249 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+2023-09-01T06:36:47,249 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+2023-09-01T06:36:47,249 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+2023-09-01T06:36:47,249 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+2023-09-01T06:36:47,249 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/transformers/models/bloom/modeling_bloom.py", line 35, in <module>
+2023-09-01T06:36:47,250 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from ...modeling_utils import PreTrainedModel
+2023-09-01T06:36:47,250 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/transformers/modeling_utils.py", line 88, in <module>
+2023-09-01T06:36:47,250 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from accelerate import dispatch_model, infer_auto_device_map, init_empty_weights
+2023-09-01T06:36:47,250 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/accelerate/__init__.py", line 3, in <module>
+2023-09-01T06:36:47,250 [INFO ] epollEventLoopGroup-5-1 org.pytorch.serve.wlm.WorkerThread - 9000 Worker disconnected. WORKER_STARTED
+2023-09-01T06:36:47,250 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from .accelerator import Accelerator
+2023-09-01T06:36:47,251 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/accelerate/accelerator.py", line 35, in <module>
+2023-09-01T06:36:47,251 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from .checkpointing import load_accelerator_state, load_custom_state, save_accelerator_state, save_custom_state
+2023-09-01T06:36:47,251 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/accelerate/checkpointing.py", line 24, in <module>
+2023-09-01T06:36:47,251 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from .utils import (
+2023-09-01T06:36:47,252 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/accelerate/utils/__init__.py", line 136, in <module>
+2023-09-01T06:36:47,252 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from .launch import (
+2023-09-01T06:36:47,250 [INFO ] epollEventLoopGroup-5-1 org.pytorch.serve.wlm.WorkerThread - 9000 Worker disconnected. WORKER_STARTED
+2023-09-01T06:36:47,252 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/accelerate/utils/launch.py", line 23, in <module>
+2023-09-01T06:36:47,252 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from ..commands.config.config_args import SageMakerConfig
+2023-09-01T06:36:47,253 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/accelerate/commands/config/__init__.py", line 19, in <module>
+2023-09-01T06:36:47,253 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from .config import config_command_parser
+2023-09-01T06:36:47,253 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/accelerate/commands/config/config.py", line 25, in <module>
+2023-09-01T06:36:47,253 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from .sagemaker import get_sagemaker_input
+2023-09-01T06:36:47,254 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/accelerate/commands/config/sagemaker.py", line 35, in <module>
+2023-09-01T06:36:47,254 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     import boto3  # noqa: F401
+2023-09-01T06:36:47,254 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/boto3/__init__.py", line 16, in <module>
+2023-09-01T06:36:47,254 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from boto3.session import Session
+2023-09-01T06:36:47,254 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/boto3/session.py", line 17, in <module>
+2023-09-01T06:36:47,255 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     import botocore.session
+2023-09-01T06:36:47,255 [DEBUG] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
+2023-09-01T06:36:47,255 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/botocore/session.py", line 26, in <module>
+2023-09-01T06:36:47,255 [DEBUG] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
+2023-09-01T06:36:47,255 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     import botocore.client
+2023-09-01T06:36:47,255 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/botocore/client.py", line 15, in <module>
+2023-09-01T06:36:47,255 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from botocore import waiter, xform_name
+2023-09-01T06:36:47,256 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/botocore/waiter.py", line 18, in <module>
+2023-09-01T06:36:47,256 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from botocore.docs.docstring import WaiterDocstring
+2023-09-01T06:36:47,256 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/botocore/docs/__init__.py", line 15, in <module>
+2023-09-01T06:36:47,256 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from botocore.docs.service import ServiceDocumenter
+2023-09-01T06:36:47,256 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/botocore/docs/service.py", line 14, in <module>
+2023-09-01T06:36:47,257 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from botocore.docs.client import ClientDocumenter, ClientExceptionsDocumenter
+2023-09-01T06:36:47,257 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/botocore/docs/client.py", line 14, in <module>
+2023-09-01T06:36:47,257 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from botocore.docs.example import ResponseExampleDocumenter
+2023-09-01T06:36:47,257 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/botocore/docs/example.py", line 13, in <module>
+2023-09-01T06:36:47,258 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from botocore.docs.shape import ShapeDocumenter
+2023-09-01T06:36:47,258 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/botocore/docs/shape.py", line 19, in <module>
+2023-09-01T06:36:47,258 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from botocore.utils import is_json_value_header
+2023-09-01T06:36:47,258 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/botocore/utils.py", line 34, in <module>
+2023-09-01T06:36:47,258 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     import botocore.httpsession
+2023-09-01T06:36:47,258 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/botocore/httpsession.py", line 21, in <module>
+2023-09-01T06:36:47,258 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from urllib3.util.ssl_ import (
+2023-09-01T06:36:47,258 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - ImportError: cannot import name 'DEFAULT_CIPHERS' from 'urllib3.util.ssl_' (/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/urllib3/util/ssl_.py)
+2023-09-01T06:36:47,259 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -
+2023-09-01T06:36:47,259 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - The above exception was the direct cause of the following exception:
+2023-09-01T06:36:47,259 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -
+2023-09-01T06:36:47,259 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - Traceback (most recent call last):
+2023-09-01T06:36:47,259 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/ts/model_service_worker.py", line 221, in <module>
+2023-09-01T06:36:47,259 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     worker.run_server()
+2023-09-01T06:36:47,259 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/ts/model_service_worker.py", line 189, in run_server
+2023-09-01T06:36:47,259 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2023-09-01T06:36:47,259 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/ts/model_service_worker.py", line 154, in handle_connection
+2023-09-01T06:36:47,259 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2023-09-01T06:36:47,260 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/ts/model_service_worker.py", line 118, in load_model
+2023-09-01T06:36:47,260 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     service = model_loader.load(
+2023-09-01T06:36:47,260 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/ts/model_loader.py", line 100, in load
+2023-09-01T06:36:47,260 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-09-01T06:36:47,260 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/local/lib/python3.8/dist-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-09-01T06:36:47,260 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-09-01T06:36:47,260 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+2023-09-01T06:36:47,260 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-09-01T06:36:47,280 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+2023-09-01T06:36:47,280 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+2023-09-01T06:36:47,280 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+2023-09-01T06:36:47,280 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+2023-09-01T06:36:47,281 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+2023-09-01T06:36:47,281 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+2023-09-01T06:36:47,281 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/custom_handler.py", line 9, in <module>
+2023-09-01T06:36:47,281 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     from transformers import BloomForCausalLM, BloomTokenizerFast
+2023-09-01T06:36:47,281 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1039, in _handle_fromlist
+2023-09-01T06:36:47,282 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/transformers/utils/import_utils.py", line 1121, in __getattr__
+2023-09-01T06:36:47,282 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     value = getattr(module, name)
+2023-09-01T06:36:47,282 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/transformers/utils/import_utils.py", line 1120, in __getattr__
+2023-09-01T06:36:47,282 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     module = self._get_module(self._class_to_module[name])
+2023-09-01T06:36:47,283 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -   File "/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/transformers/utils/import_utils.py", line 1132, in _get_module
+2023-09-01T06:36:47,283 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG -     raise RuntimeError(
+2023-09-01T06:36:47,283 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - RuntimeError: Failed to import transformers.models.bloom.modeling_bloom because of the following error (look up to see its traceback):
+2023-09-01T06:36:47,283 [INFO ] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0-stdout MODEL_LOG - cannot import name 'DEFAULT_CIPHERS' from 'urllib3.util.ssl_' (/home/model-server/tmp/models/4ae658ef253b49e7bdced115e1cf8363/urllib3/util/ssl_.py)
+2023-09-01T06:36:47,255 [DEBUG] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died.
+java.lang.InterruptedException: null
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679) ~[?:?]
+	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:435) ~[?:?]
+	at org.pytorch.serve.wlm.WorkerThread.run(WorkerThread.java:191) [model-server.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) [?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
+	at java.lang.Thread.run(Thread.java:833) [?:?]
+2023-09-01T06:36:47,255 [DEBUG] W-9000-inference-service-64bcd7acc66e616e18458ca3_1.0 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died.
+java.lang.InterruptedException: null
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679) ~[?:?]
+	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:435) ~[?:?]
+	at org.pytorch.serve.wlm.WorkerThread.run(WorkerThread.java:191) [model-server.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) [?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
+	at java.lang.Thread.run(Thread.java:833) [?:?]
